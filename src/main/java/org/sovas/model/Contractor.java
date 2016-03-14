@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Contractor {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
@@ -18,7 +19,15 @@ public class Contractor {
     @Column(nullable = false)
     private String technology;
 
+    @Column
     private Byte yearsOfExperience;
+
+/*    @Column
+    private int hourlySalary;
+    @Column
+    private int monthlySalary;
+    @Column
+    private int annualSalary;*/
 
     @ManyToOne
     @JoinColumn(name = "contractorId")
