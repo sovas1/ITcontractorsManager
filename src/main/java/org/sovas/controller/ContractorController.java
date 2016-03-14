@@ -3,6 +3,7 @@ package org.sovas.controller;
 import org.sovas.dao.contractor.ContractorDao;
 import org.sovas.model.Contractor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,5 +28,8 @@ public class ContractorController {
 
     @RequestMapping(value = "/contractor/{contractorId}", method = RequestMethod.DELETE)
     public void deleteContractor(@PathVariable Long contractorId) { contractorDao.deleteContractor(contractorId); }
+
+    @RequestMapping(value = "/contractor/getBy", method = RequestMethod.GET)
+    public List<Contractor> searchByTechnology(@Param("technology") String technology) { return contractorDao.searchByTechnology(technology); }
 
 }

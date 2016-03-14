@@ -50,4 +50,10 @@ public class ContractorDaoImpl implements ContractorDao {
     public Contractor getContractor(Long contractorId) {
         return contractorRepository.getOne(contractorId);
     }
+
+    @Override
+    public List<Contractor> searchByTechnology(String technology) {
+        log.debug("List: ", contractorRepository.searchByTechnology(technology));
+        return contractorRepository.searchByTechnology(technology);
+    }
 }

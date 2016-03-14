@@ -16,4 +16,5 @@ public interface ContractorDao {
 
     Contractor getContractor(Long contractorId);
 
+    List<Contractor> searchByTechnology(String technology);
 }
