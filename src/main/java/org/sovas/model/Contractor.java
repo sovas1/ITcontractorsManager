@@ -22,12 +22,8 @@ public class Contractor {
     @Column
     private Byte yearsOfExperience;
 
-/*    @Column
-    private int hourlySalary;
     @Column
-    private int monthlySalary;
-    @Column
-    private int annualSalary;*/
+    private double monthlySalary;
 
     @ManyToOne
     @JoinColumn(name = "contractorId")
