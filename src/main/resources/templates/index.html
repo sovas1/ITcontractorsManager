@@ -9,8 +9,8 @@
 
     <!-- SPELLS -->
     <!-- load angular and angular route via CDN -->
-    <script src="scripts/angular.min.js"></script>
-    <script src="scripts/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <script src="scripts/script.js" ></script>
 </head>
 <body ng-controller="mainController">
@@ -32,9 +32,50 @@
     </nav>
 </header>
 
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <p class="text-primary text-center">COMPANY</p>
+            </div>
+            <div class="col-md-3">
+                <p class="text-primary text-center">CONTRACTOR</p>
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+<div class="section2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="#company/get" type="button" class="btn btn-primary">GET</a>
+                    <a href="#company/post" type="button" class="btn btn-warning">POST</a>
+                    <a href="#company/put" type="button" class="btn btn-info">PUT</a>
+                    <a href="#company/delete" type="button" class="btn btn-success">DELETE</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary">GET</button>
+                    <button type="button" class="btn btn-warning">POST</button>
+                    <button type="button" class="btn btn-info">PUT</button>
+                    <button type="button" class="btn btn-success">DELETE</button>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+
 <!-- MAIN CONTENT AND INJECTED VIEWS -->
 <div id="main">
-    {{message}}
+    <div ng-view></div>
+
     <!-- angular templating -->
     <!-- this is where content will be injected -->
 
