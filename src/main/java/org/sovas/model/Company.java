@@ -12,10 +12,10 @@ public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long companyId;
 
     @Column(nullable = false)
-    private String name;
+    private String companyName;
 
     @Column
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -33,8 +33,8 @@ public class Company {
     @Override
     public String toString() {
         return "Company{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
+                "name='" + companyName + '\'' +
+                ", id=" + companyId +
                 '}';
     }
 }

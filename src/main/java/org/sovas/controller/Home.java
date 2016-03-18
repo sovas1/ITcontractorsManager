@@ -14,6 +14,6 @@ public class Home {
                     "value = /company  |  method = GET  <-- shows all Company\n";*/
 
     @RequestMapping(value = "/")
-    public String index() { return "index"; }
+    public String home() { return "index"; }
 
 }

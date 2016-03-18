@@ -11,7 +11,7 @@ public class Contractor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long contractorId;
 
     @Column(nullable = false)
     private String name;
@@ -26,14 +26,14 @@ public class Contractor {
     private double monthlySalary;
 
     @ManyToOne
-    @JoinColumn(name = "contractorId")
+    @JoinColumn(name = "contrId")
     @JsonIgnore
     private Company company;
 
     @Override
     public String toString() {
         return "Contractor{" +
-                "id=" + id +
+                "id=" + contractorId +
                 ", name='" + name + '\'' +
                 ", technology='" + technology + '\'' +
                 ", yearsOfExperience=" + yearsOfExperience +

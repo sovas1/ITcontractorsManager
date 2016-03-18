@@ -1,43 +1,42 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="scotchApp">
 <head>
-    <meta charset="UTF-8" />
-    <title>DEMO</title>
+    <!-- SCROLLS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+    <!-- SPELLS -->
+    <!-- load angular and angular route via CDN -->
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/script.js" ></script>
 </head>
-<body>
-<div align="center" >
+<body ng-controller="mainController">
 
-    <div id="header" >
-        <h2>IT Contractors Manager</h2>
-    </div>
+<!-- HEADER AND NAVBAR -->
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Angular Routing Example</a>
+            </div>
 
-    <div id="company">
-        <h3><br></br>Company Controller</h3>
-        <!--<h5>@GET    @POST   @PUT    @DELETE</h5>-->
-        <p>@GET     /company     -- return list of company</p>
-        <p>@GET     /company/{id}     -- return single company</p>
-        <p>@POST    /company     -- add a company (json body required)</p>
-        <p>@PUT     /company     -- edit company (json body required)</p>
-        <p>@DELETE     /company{id}     -- delete company</p>
-        <p>@PUT     /company/{companyId}/contractor/{contractorId}     -- add contractor to company</p>
-    </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
-    <div id="contractor">
-        <h3><br></br>Contractor Controller</h3>
-        <!--<h5>@GET    @POST   @PUT    @DELETE</h5>-->
-        <p>@GET     /contractor     -- return list of contractor</p>
-        <p>@GET     /contractor/{id}     -- return single contractor</p>
-        <p>@POST    /contractor     -- add a contractor (json body required)</p>
-        <p>@PUT     /contractor     -- edit contractor (json body required)</p>
-        <p>@DELETE     /contractor{id}     -- delete contractor</p>
-    </div>
-
-    <div id="footer">
-        <br></br>
-        <br></br>
-        Copyright © Mariusz Sowa
-    </div>
-
+<!-- MAIN CONTENT AND INJECTED VIEWS -->
+<div id="main">
+    {{message}}
+    <!-- angular templating -->
+    <!-- this is where content will be injected -->
 
 </div>
 

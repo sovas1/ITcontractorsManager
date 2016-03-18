@@ -25,10 +25,10 @@ public class ContractorDaoImpl implements ContractorDao {
 
     @Override
     public Contractor updateContractor(Contractor contractor) {
-        Contractor oldContractor = contractorRepository.findOne(contractor.getId());
+        Contractor oldContractor = contractorRepository.findOne(contractor.getContractorId());
         oldContractor.setName(contractor.getName());
         oldContractor.setCompany(contractor.getCompany());
-        oldContractor.setId(contractor.getId());
+        oldContractor.setContractorId(contractor.getContractorId());
         oldContractor.setTechnology(contractor.getTechnology());
         oldContractor.setYearsOfExperience(contractor.getYearsOfExperience());
         log.debug("{} updated", oldContractor);

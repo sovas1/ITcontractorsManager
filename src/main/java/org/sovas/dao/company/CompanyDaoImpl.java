@@ -30,8 +30,8 @@ public class CompanyDaoImpl implements CompanyDao {
 
     @Override
     public Company updateCompany(Company company) {
-        Company oldCompany = companyRepository.findOne(company.getId());
-        oldCompany.setName(company.getName());
+        Company oldCompany = companyRepository.findOne(company.getCompanyId());
+        oldCompany.setCompanyName(company.getCompanyName());
         log.debug("{} updated", oldCompany);
         return companyRepository.saveAndFlush(oldCompany);
     }
