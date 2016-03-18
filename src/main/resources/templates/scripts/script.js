@@ -26,7 +26,7 @@ scotchApp.config(function($routeProvider) {
             controller  : 'contactController'
         })
 
-        // route for the company get page
+        // ROUTE FOR COMPANY
         .when('/company/get', {
             templateUrl : 'pages/company/get.html',
             controller  : 'companyGetController'
@@ -42,7 +42,26 @@ scotchApp.config(function($routeProvider) {
         .when('/company/delete', {
             templateUrl : 'pages/company/delete.html',
             controller  : 'companyDeleteController'
-        });
+        })
+
+        // ROUTE FOR CONTRACTOR
+        .when('/contractor/get', {
+            templateUrl : 'pages/contractor/get.html',
+            controller  : 'contractorGetController'
+        })
+        .when('/contractor/post', {
+            templateUrl : 'pages/contractor/post.html',
+            controller  : 'contractorPostController'
+        })
+        .when('/contractor/put', {
+            templateUrl : 'pages/contractor/put.html',
+            controller  : 'contractorPutController'
+        })
+        .when('/contractor/delete', {
+            templateUrl : 'pages/contractor/delete.html',
+            controller  : 'contractorDeleteController'
+        })
+    ;
 });
 
 // create the controller and inject Angular's $scope
@@ -67,6 +86,26 @@ scotchApp.controller('companyGetController', function($scope) {
 
 scotchApp.controller('companyPostController', function($scope) {
     $scope.message = 'post company';
+
+    $scope.postCompany = function postCompany() {
+        if($scope.name==""){
+            alert("Insufficient Data! Please provide values for task name, description, priortiy and status");
+        }
+        else{
+            $http.post('localhost:8080/company', {
+                companyName: $scope.name,
+            }).
+            success(function(data, status, headers) {
+                alert("Task added");
+                var newTaskUri = headers()["location"];
+                console.log("Might be good to GET " + newTaskUri + " and append the task.");
+                // Refetching EVERYTHING every time can get expensive over time
+                // Better solution would be to $http.get(headers()["location"]) and add it to the list
+                //findAllTasks();
+            });
+        }
+    };
+
 });
 
 scotchApp.controller('companyPutController', function($scope) {
@@ -75,4 +114,22 @@ scotchApp.controller('companyPutController', function($scope) {
 
 scotchApp.controller('companyDeleteController', function($scope) {
     $scope.message = 'delete company';
+});
+
+// CONTRACTOR CONTROLLERS
+
+scotchApp.controller('contractorGetController', function($scope) {
+    $scope.message = 'get contractor';
+});
+
+scotchApp.controller('contractorPostController', function($scope) {
+    $scope.message = 'post contractor';
+});
+
+scotchApp.controller('contractorPutController', function($scope) {
+    $scope.message = 'put contractor';
+});
+
+scotchApp.controller('contractorDeleteController', function($scope) {
+    $scope.message = 'delete contractor';
 });
