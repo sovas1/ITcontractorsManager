@@ -26,6 +26,11 @@ scotchApp.config(function($routeProvider) {
             controller  : 'contactController'
         })
 
+        .when('/addContractorToCompany', {
+            templateUrl : 'pages/addContractorToCompany.html',
+            controller  : 'addContractorToCompany'
+        })
+
         // ROUTE FOR COMPANY
         .when('/company/get', {
             templateUrl : 'pages/company/get.html',
@@ -77,6 +82,11 @@ scotchApp.controller('aboutController', function($scope) {
 scotchApp.controller('contactController', function($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
 });
+
+scotchApp.controller('addContractorToCompany', function($scope) {
+    $scope.message = 'Adding Contractor To Company will be here soon';
+});
+
 
 // COMPANY CONTROLLERS
 
