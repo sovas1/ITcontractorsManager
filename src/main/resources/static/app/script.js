@@ -4,8 +4,10 @@
 // also include ngRoute for all our routing needs
 var scotchApp = angular.module('scotchApp', ['ngRoute']);
 
+var urlBase = "";
+
 // configure our routes
-scotchApp.config(function($routeProvider) {
+scotchApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
 
     // route for the home page
@@ -65,8 +67,9 @@ scotchApp.config(function($routeProvider) {
         .when('/contractor/delete', {
             templateUrl : 'pages/contractor/delete.html',
             controller  : 'contractorDeleteController'
-        })
-    ;
+        });
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 });
 
 // create the controller and inject Angular's $scope
@@ -102,16 +105,21 @@ scotchApp.controller('companyPostController', function($scope) {
             alert("Insufficient Data! Please provide values for task name, description, priortiy and status");
         }
         else{
-            $http.post('localhost:8080/company', {
-                companyName: $scope.name,
+            alert("Attempting to add");
+            $http.post(urlBase + 'company/', {
+                companyName: $scope.name
             }).
-            success(function(data, status, headers) {
+            success(function(data, status, headers, config) {
                 alert("Task added");
                 var newTaskUri = headers()["location"];
                 console.log("Might be good to GET " + newTaskUri + " and append the task.");
                 // Refetching EVERYTHING every time can get expensive over time
                 // Better solution would be to $http.get(headers()["location"]) and add it to the list
                 //findAllTasks();
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
             });
         }
     };

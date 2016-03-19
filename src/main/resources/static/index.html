@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html ng-app="scotchApp">
 <head>
+    <meta charset="utf-8">
+
+    <base href="/">
     <!-- SCROLLS -->
     <!-- load bootstrap and fontawesome via CDN -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
@@ -24,8 +27,8 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-                <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                <li><a href="/about"><i class="fa fa-shield"></i> About</a></li>
+                <li><a href="/contact"><i class="fa fa-comment"></i> Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -52,18 +55,18 @@
             <div class="col-md-3"></div>
             <div class="col-md-3">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="#company/get" type="button" class="btn btn-primary">GET</a>
-                    <a href="#company/post" type="button" class="btn btn-warning">POST</a>
-                    <a href="#company/put" type="button" class="btn btn-info">PUT</a>
-                    <a href="#company/delete" type="button" class="btn btn-success">DELETE</a>
+                    <a href="/company/get" type="button" class="btn btn-primary">GET</a>
+                    <a href="/company/post" type="button" class="btn btn-warning">POST</a>
+                    <a href="/company/put" type="button" class="btn btn-info">PUT</a>
+                    <a href="/company/delete" type="button" class="btn btn-success">DELETE</a>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="#contractor/get" type="button" class="btn btn-primary">GET</a>
-                    <a href="#contractor/post" type="button" class="btn btn-warning">POST</a>
-                    <a href="#contractor/put" type="button" class="btn btn-info">PUT</a>
-                    <a href="#contractor/delete" type="button" class="btn btn-success">DELETE</a>
+                    <a href="/contractor/get" type="button" class="btn btn-primary">GET</a>
+                    <a href="/contractor/post" type="button" class="btn btn-warning">POST</a>
+                    <a href="/contractor/put" type="button" class="btn btn-info">PUT</a>
+                    <a href="/contractor/delete" type="button" class="btn btn-success">DELETE</a>
                 </div>
             </div>
             <div class="col-md-3"></div>
@@ -73,9 +76,10 @@
 <br>
 <div class="row">
     <div class="col-md-12 text-center">
-        <a class="btn btn-lg btn-link" href="#addContractorToCompany"><i class="fa fa-star fa-fw"></i>Add Contractor To Company</a>
+        <a class="btn btn-lg btn-link" href="/addContractorToCompany"><i class="fa fa-star fa-fw"></i>Add Contractor To Company</a>
     </div>
 </div>
+<hr>
 <br>
 
 <!-- MAIN CONTENT AND INJECTED VIEWS -->
