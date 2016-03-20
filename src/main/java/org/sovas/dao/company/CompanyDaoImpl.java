@@ -39,7 +39,7 @@ public class CompanyDaoImpl implements CompanyDao {
     @Override
     public void deleteCompany(Long companyId) {
         companyRepository.delete(companyId);
-        log.debug("User with id {} deleted successfully", companyId);
+        log.debug("Company with id {} deleted successfully", companyId);
     }
 
     @Override

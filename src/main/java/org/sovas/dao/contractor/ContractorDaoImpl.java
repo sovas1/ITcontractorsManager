@@ -53,6 +53,7 @@ public class ContractorDaoImpl implements ContractorDao {
             //removing contractor from list in company
             company.getContractorsList().remove(contractor);
             company.getIdList().remove(contractorId);
+            company.updateAnnualSalarySum(contractor);
         }
 
 

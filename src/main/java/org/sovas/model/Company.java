@@ -37,6 +37,10 @@ public class Company {
         idList.add(contractor.getContractorId());
     }
 
+    public void updateAnnualSalarySum(Contractor contractor){
+        annualSalarySum -= contractor.getMonthlySalary() * 12;
+    }
+
     @Override
     public String toString() {
         return "Company{" +
