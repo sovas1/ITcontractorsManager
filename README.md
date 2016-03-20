@@ -3,6 +3,7 @@ CRUD using Spring Boot, Rest, AngularJS and few more :)
 Used:
 - IntelliJ IDEA
 - Maven
+
 Plugins:
 - Lombock
 - AngularJS
