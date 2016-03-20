@@ -8,10 +8,10 @@ Plugins:
 - AngularJS
 
 How to run?
-1) git clone url
-2) Open ITcontractorsManager folder in IntelliJ IDEA
-3) Run ApplicationStarter
-4) Type localhost:8080 in your broswer or use any Rest Client
+- git clone url
+- Open ITcontractorsManager folder in IntelliJ IDEA
+- Run ApplicationStarter
+- Type localhost:8080 in your broswer or use any Rest Client
 
 Thanks!
 
