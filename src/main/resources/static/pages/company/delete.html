@@ -1,6 +1,33 @@
 <!-- delete.html -->
-<div class="jumbotron text-center">
-    <h1>Company delete Page</h1>
+<!--<div class="jumbotron text-center">-->
+    <!--<h1>Company delete Page</h1>-->
 
-    <p>{{ message }}</p>
+    <!--<p>{{ message }}</p>-->
+<!--</div>-->
+
+
+<body>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-1"><input type="number" ng-model="companyId" class="form-control" id="inputId"
+                                                      placeholder="company id"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-10">
+                            <button type="submit" ng-click="deleteCompany()" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-5"></div>
+        </div>
+    </div>
 </div>
+</body>

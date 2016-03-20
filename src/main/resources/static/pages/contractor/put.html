@@ -1,6 +1,53 @@
 <!-- put.html -->
-<div class="jumbotron text-center">
-    <h1>Contractor put Page</h1>
+<!--<div class="jumbotron text-center">-->
+    <!--<h1>Contractor put Page</h1>-->
 
-    <p>{{ message }}</p>
+    <!--<p>{{ message }}</p>-->
+<!--</div>-->
+
+<body>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="col-sm-2"><label for="inputId" class="control-label">Id<br><br></label></div>
+                        <div class="col-sm-10"><input type="text" ng-model="contractorId" class="form-control" id="inputId"
+                                                      placeholder="id of contractor which you want to edit"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2"><label for="inputName" class="control-label">Name<br><br></label></div>
+                        <div class="col-sm-10"><input type="text" ng-model="contractorName" class="form-control" id="inputName"
+                                                      placeholder="new name of contractor"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2"><label for="inputTechnology" class="control-label">Technology<br><br></label></div>
+                        <div class="col-sm-10"><input type="text" ng-model="technology" class="form-control" id="inputTechnology"
+                                                      placeholder="new technology, e.g. Java, AngularJS"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2"><label for="inputExperience" class="control-label">Experience<br><br></label></div>
+                        <div class="col-sm-10"><input type="number" ng-model="yearsOfExperience" class="form-control" id="inputExperience"
+                                                      placeholder="new value of experience in years"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2"><label for="inputSalary" class="control-label">Salary<br><br></label></div>
+                        <div class="col-sm-10"><input type="number" ng-model="monthlySalary" class="form-control" id="inputSalary"
+                                                      placeholder="new value of expected monthly salary"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" ng-click="putContractor()" class="btn btn-success">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-3"></div>
+        </div>
+    </div>
 </div>
+</body>

@@ -1,6 +1,59 @@
 <!-- get.html -->
-<div class="jumbotron text-center">
-    <h1>Contractor get Page</h1>
+<!--<div class="jumbotron text-center">-->
+    <!--<h1>Contractor get Page</h1>-->
 
-    <p>{{ message }}</p>
+    <!--<p>{{ message }}</p>-->
+<!--</div>-->
+
+
+<body>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+                <div class="form-group center-block">
+                    <div class="col-sm-offset-5 col-sm-10">
+                        <button type="submit" ng-click="getContractor()" class="btn btn-danger">LOAD</button>
+                    </div>
+                </div>
+
+                <br>
+                <hr>
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th class="alnright">Technology</th>
+                        <th class="alnright">Years Of Experience</th>
+                        <th class="alnright">Expected Monthly Salary</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="x in contractors">
+                        <td>{{ x.contractorId}}</td>
+                        <td>{{ x.contractorName}}</td>
+                        <td class="alnright">{{ x.technology}}</td>
+                        <td class="alnright">{{ x.yearsOfExperience}}</td>
+                        <td class="alnright">{{ x.monthlySalary}}</td>
+                    </tr>
+
+                    <style>
+                        .alnright { text-align: right; }
+                    </style>
+
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
 </div>
+
+</body>

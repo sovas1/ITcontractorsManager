@@ -1,6 +1,64 @@
 <!-- get.html -->
-<div class="jumbotron text-center">
-    <h1>Company get Page</h1>
+<!--<div class="jumbotron text-center">-->
+    <!--<h1>Company get Page</h1>-->
 
-    <p>{{ message }}</p>
+    <!--<p>{{ message }}</p>-->
+<!--</div>-->
+
+<!-- get.html -->
+<!--<div class="jumbotron text-center">-->
+<!--<h1>Contractor get Page</h1>-->
+
+<!--<p>{{ message }}</p>-->
+<!--</div>-->
+
+
+<body>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+                <div class="form-group center-block">
+                    <div class="col-sm-offset-5 col-sm-10">
+                        <button type="submit" ng-click="getCompany()" class="btn btn-danger">LOAD</button>
+                    </div>
+                </div>
+
+                <br>
+                <hr>
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th class="alnright">Annual Salary Sum</th>
+                        <th class="alnright">Contractors List</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="x in company">
+                        <td>{{ x.companyId}}</td>
+                        <td>{{ x.companyName}}</td>
+                        <td class="alnright">{{ x.annualSalarySum}}</td>
+                        <td class="alnright">{{ x.idList}}</td>
+                    </tr>
+
+                    <style>
+                        .alnright { text-align: right; }
+                    </style>
+
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
 </div>
+
+</body>

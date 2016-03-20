@@ -14,7 +14,7 @@ public class Contractor {
     private Long contractorId;
 
     @Column(nullable = false)
-    private String name;
+    private String contractorName;
 
     @Column(nullable = false)
     private String technology;
@@ -34,9 +34,10 @@ public class Contractor {
     public String toString() {
         return "Contractor{" +
                 "id=" + contractorId +
-                ", name='" + name + '\'' +
+                ", name='" + contractorName + '\'' +
                 ", technology='" + technology + '\'' +
                 ", yearsOfExperience=" + yearsOfExperience +
+                ", monthlySalary=" + monthlySalary +
                 '}';
     }
 }

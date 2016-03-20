@@ -68,7 +68,7 @@ scotchApp.config(function($routeProvider, $locationProvider) {
             templateUrl : 'pages/contractor/delete.html',
             controller  : 'contractorDeleteController'
         });
-    // use the HTML5 History API
+    // use the HTML5 History API for no # addressing
     $locationProvider.html5Mode(true);
 });
 
@@ -86,68 +86,164 @@ scotchApp.controller('contactController', function($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
 });
 
-scotchApp.controller('addContractorToCompany', function($scope) {
+scotchApp.controller('addContractorToCompany', function($scope, $http) {
     $scope.message = 'Adding Contractor To Company will be here soon';
+
+    $scope.addContractorToCompany = function addContractorToCompany() {
+
+        $http({
+            method: "PUT",
+            url: urlBase + "/company/" + $scope.companyId + "/contractor/" + $scope.contractorId
+        }).success(function (data, status, headers) {
+            alert("Assigned Contractor to Company");
+        });
+    };
 });
 
 
 // COMPANY CONTROLLERS
 
-scotchApp.controller('companyGetController', function($scope) {
+scotchApp.controller('companyGetController', function($scope, $http) {
     $scope.message = 'get company';
+
+    $scope.getCompany = function getCompany() {
+        $http.get("/company")
+            .success(function(response) {
+                $scope.company = response;
+            });
+    }
 });
 
-scotchApp.controller('companyPostController', function($scope) {
+scotchApp.controller('companyPostController', function($scope, $http) {
     $scope.message = 'post company';
 
     $scope.postCompany = function postCompany() {
-        if($scope.name==""){
-            alert("Insufficient Data! Please provide values for task name, description, priortiy and status");
+        if($scope.companyName==""){
+            alert("Insufficient Data! Please provide values for Company name.");
         }
         else{
-            alert("Attempting to add");
-            $http.post(urlBase + 'company/', {
-                companyName: $scope.name
+            $http.post('company/', {
+                companyName: $scope.companyName
             }).
             success(function(data, status, headers, config) {
-                alert("Task added");
-                var newTaskUri = headers()["location"];
-                console.log("Might be good to GET " + newTaskUri + " and append the task.");
-                // Refetching EVERYTHING every time can get expensive over time
-                // Better solution would be to $http.get(headers()["location"]) and add it to the list
-                //findAllTasks();
+                alert("Company added to database");
             }).
             error(function(data, status, headers, config) {
                 // called asynchronously if an error occurs
-                // or server returns response with an error status.
             });
         }
     };
 
 });
 
-scotchApp.controller('companyPutController', function($scope) {
+scotchApp.controller('companyPutController', function($scope, $http) {
     $scope.message = 'put company';
+
+    $scope.putCompany = function putCompany() {
+        if($scope.companyName==""){
+            alert("Insufficient Data! Please provide values for Company name.");
+        }
+        else{
+            $http.put('company/', {
+                companyId: $scope.companyId,
+                companyName: $scope.companyName
+            }).
+            success(function(data, status, headers, config) {
+                alert("Company name updated");
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+            });
+        }
+    };
 });
 
-scotchApp.controller('companyDeleteController', function($scope) {
+scotchApp.controller('companyDeleteController', function($scope, $http) {
     $scope.message = 'delete company';
+
+    $scope.deleteCompany = function deleteCompany() {
+        if($scope.companyId != 0) {
+            $http({
+                method : "DELETE",
+                url : urlBase + "/company/" + $scope.companyId
+            }).then( _success, _error );
+        }
+    };
 });
 
 // CONTRACTOR CONTROLLERS
 
-scotchApp.controller('contractorGetController', function($scope) {
+scotchApp.controller('contractorGetController', function($scope, $http) {
     $scope.message = 'get contractor';
+
+    $scope.getContractor = function getContractor() {
+        $http.get("/contractor")
+            .success(function(response) {
+                $scope.contractors = response;
+            });
+        }
 });
 
-scotchApp.controller('contractorPostController', function($scope) {
+scotchApp.controller('contractorPostController', function($scope, $http) {
     $scope.message = 'post contractor';
+
+    $scope.postContractor = function postContractor() {
+        if($scope.contractorName==""){
+            alert("Insufficient Data! Please provide values for Contractor name.");
+        }
+        else{
+            $http.post('contractor/', {
+                contractorName: $scope.contractorName,
+                technology: $scope.technology,
+                yearsOfExperience: $scope.yearsOfExperience,
+                monthlySalary: $scope.monthlySalary
+            }).
+            success(function(data, status, headers, config) {
+                alert("Contractor added to database");
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+            });
+        }
+    };
+
 });
 
-scotchApp.controller('contractorPutController', function($scope) {
+scotchApp.controller('contractorPutController', function($scope, $http) {
     $scope.message = 'put contractor';
+
+    $scope.putContractor = function putContractor() {
+        if($scope.contractorName==""){
+            alert("Insufficient Data! Please provide values for Contractor name.");
+        }
+        else{
+            $http.put('contractor/', {
+                contractorId: $scope.contractorId,
+                contractorName: $scope.contractorName,
+                technology: $scope.technology,
+                yearsOfExperience: $scope.yearsOfExperience,
+                monthlySalary: $scope.monthlySalary
+            }).
+            success(function(data, status, headers, config) {
+                alert("Contractor added to database");
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+            });
+        }
+    };
 });
 
-scotchApp.controller('contractorDeleteController', function($scope) {
+scotchApp.controller('contractorDeleteController', function($scope, $http) {
     $scope.message = 'delete contractor';
+
+    $scope.deleteContractor = function deleteContractor() {
+        if($scope.contractorId != 0) {
+            alert("Contractor deleted");
+            $http({
+                method : "DELETE",
+                url : urlBase + "/contractor/" + $scope.contractorId
+            }).then( _success, _error );
+        }
+    };
 });

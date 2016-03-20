@@ -1,9 +1,11 @@
 package org.sovas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,13 +23,18 @@ public class Company {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private double annualSalarySum;
 
-    //@JsonIgnore
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Contractor> contractorsList;
 
-    public boolean addContractor(Contractor contractor) {
+    @Column
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @ElementCollection(targetClass=Long.class)
+    private List<Long> idList = new ArrayList<>();
+
+    public void addContractor(Contractor contractor) {
         annualSalarySum += contractor.getMonthlySalary() * 12;
-        return contractorsList.add(contractor);
+        contractorsList.add(contractor);
+        idList.add(contractor.getContractorId());
     }
 
     @Override
