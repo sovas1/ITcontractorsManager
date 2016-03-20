@@ -18,7 +18,7 @@ public class ContractorController {
     public List<Contractor> getAllContractors() { return contractorDao.getAllContractors(); }
 
     @RequestMapping(value = "/contractor/{contractorId}", method = RequestMethod.GET)
-    public String getContractor(@PathVariable Long contractorId) { return contractorDao.getContractor(contractorId).toString(); }
+    public Contractor getContractor(@PathVariable Long contractorId) { return contractorDao.getContractor(contractorId); }
 
     @RequestMapping(value = "/contractor", method = RequestMethod.POST)
     public void addContractor(@RequestBody Contractor contractor) { contractorDao.addContractor(contractor); }
