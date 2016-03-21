@@ -5,12 +5,21 @@
 
     <meta charset="utf-8">
     <base href="/">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/buttons.css" />
 
 </head>
 
 <body ng-controller="mainController">
+
+<div id="clouds">
+    <div class="cloud x1"></div>
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x4"></div>
+    <div class="cloud x5"></div>
+</div>
 
 <!-- HEADER AND NAVBAR -->
 <header>
@@ -28,49 +37,58 @@
     </nav>
 </header>
 
+
+<!-- BUTTONS -->
+
+
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3">
-                <p class="text-primary text-center">COMPANY</p>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="text-primary">COMPANY</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="btn-group btn-group-justified btn-group-sm">
+                            <a href="/company/get" type="button" class="btn btn-primary">GET</a>
+                            <a href="/company/post" type="button" class="btn btn-warning">POST</a>
+                            <a href="/company/put" type="button" class="btn btn-info">PUT</a>
+                            <a href="/company/delete" type="button" class="btn btn-success">DELETE</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <p class="text-primary text-center">CONTRACTOR</p>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="text-primary">CONTRACTOR</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="btn-group btn-group-justified btn-group-sm">
+                            <a href="/contractor/get" type="button" class="btn btn-primary">GET</a>
+                            <a href="/contractor/post" type="button" class="btn btn-warning">POST</a>
+                            <a href="/contractor/put" type="button" class="btn btn-info">PUT</a>
+                            <a href="/contractor/delete" type="button" class="btn btn-success">DELETE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-    </div>
-</div>
-<div class="section2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="/company/get" type="button" class="btn btn-primary">GET</a>
-                    <a href="/company/post" type="button" class="btn btn-warning">POST</a>
-                    <a href="/company/put" type="button" class="btn btn-info">PUT</a>
-                    <a href="/company/delete" type="button" class="btn btn-success">DELETE</a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="/contractor/get" type="button" class="btn btn-primary">GET</a>
-                    <a href="/contractor/post" type="button" class="btn btn-warning">POST</a>
-                    <a href="/contractor/put" type="button" class="btn btn-info">PUT</a>
-                    <a href="/contractor/delete" type="button" class="btn btn-success">DELETE</a>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-    </div>
-</div>
-<br>
+
 <div class="row">
     <div class="col-md-12 text-center">
-        <a class="btn btn-lg btn-link" href="/addContractorToCompany"><i class="fa fa-star fa-fw"></i>Add Contractor To Company</a>
+        <a class="btn btn-lg btn-link" href="/addContractorToCompany"><i
+                class="fa fa-fw fa-lg fa-paperclip pull-left"></i>Add Contractor To Company</a>
     </div>
 </div>
 <hr>
@@ -84,7 +102,6 @@
     <!-- this is where content will be injected -->
 
 </div>
-
 
 
 <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
