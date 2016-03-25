@@ -1,117 +1,39 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html ng-app="app">
-<head>
 
+<head>
     <meta charset="utf-8">
     <base href="/">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap/font-awesome-4.5.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/clouds.css" />
-
-    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-
-    <script type="text/javascript" src="app/script.js"></script>
-    <script type="text/javascript" src="app/routes/routes.js"></script>
-    <script type="text/javascript" src="app/controllers/navBarController.js"></script>
-    <script type="text/javascript" src="app/controllers/modelsController.js"></script>
-
 </head>
 
 <body ng-controller="mainController">
 
-<div id="clouds">
-    <div class="cloud x1"></div>
-    <div class="cloud x2"></div>
-    <div class="cloud x3"></div>
-    <div class="cloud x4"></div>
-    <div class="cloud x5"></div>
-</div>
+<animated-clouds></animated-clouds>
 
-<!-- HEADER AND NAVBAR -->
-<header>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Contractors Manager</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="/about"><i class="fa fa-shield"></i> About</a></li>
-                <li><a href="/contact"><i class="fa fa-comment"></i> Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<header-and-nav-bar></header-and-nav-bar>
+
+<all-buttons></all-buttons>
 
 
-<!-- BUTTONS -->
-
-
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p class="text-primary">COMPANY</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="btn-group btn-group-justified btn-group-sm">
-                            <a href="/company/get" type="button" class="btn btn-primary">GET</a>
-                            <a href="/company/post" type="button" class="btn btn-warning">POST</a>
-                            <a href="/company/put" type="button" class="btn btn-info">PUT</a>
-                            <a href="/company/delete" type="button" class="btn btn-success">DELETE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p class="text-primary">CONTRACTOR</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="btn-group btn-group-justified btn-group-sm">
-                            <a href="/contractor/get" type="button" class="btn btn-primary">GET</a>
-                            <a href="/contractor/post" type="button" class="btn btn-warning">POST</a>
-                            <a href="/contractor/put" type="button" class="btn btn-info">PUT</a>
-                            <a href="/contractor/delete" type="button" class="btn btn-success">DELETE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-md-12 text-center">
-        <a class="btn btn-lg btn-link" href="/addContractorToCompany"><i
-                class="fa fa-fw fa-lg fa-paperclip pull-left"></i>Add Contractor To Company</a>
-    </div>
-</div>
-<hr>
-<br>
-
-<!-- MAIN CONTENT AND INJECTED VIEWS -->
 <div id="main">
     <div ng-view></div>
-
     <!-- angular templating -->
-    <!-- this is where content will be injected -->
-
 </div>
 
+
+<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-resource/angular-route.min.js"></script>
+
+<script type="text/javascript" src="app/script.js"></script>
+<script type="text/javascript" src="app/routes/routes.js"></script>
+<script type="text/javascript" src="app/routes/customDirectives.js"></script>
+<script type="text/javascript" src="app/controllers/navBarController.js"></script>
+<script type="text/javascript" src="app/controllers/modelsController.js"></script>
 
 </body>
 </html>

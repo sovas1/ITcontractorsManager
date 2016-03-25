@@ -2,6 +2,8 @@
 
 (function () {
 
-    var app = angular.module('app', ['routes-controller', 'nav-controller', 'models-controller']);
+    var app = angular.module('app', 
+        ['routes', 'custom-directives', 'nav-controller', 'models-controller']
+    );
 
 })();

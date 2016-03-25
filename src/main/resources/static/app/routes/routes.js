@@ -2,7 +2,7 @@
 
 (function () {
 
-    var app = angular.module('routes-controller', ['ngRoute']);
+    var app = angular.module('routes', ['ngRoute']);
 
     // routes configuration
     app.config(function ($routeProvider, $locationProvider) {
@@ -10,24 +10,24 @@
 
         // route for the home page
             .when('/', {
-                templateUrl: 'pages/home.html',
+                templateUrl: 'pages/main_view_content/home.html',
                 controller: 'mainController'
             })
 
             // route for the about page
             .when('/about', {
-                templateUrl: 'pages/about.html',
+                templateUrl: 'pages/main_view_content/about.html',
                 controller: 'aboutController'
             })
 
             // route for the contact page
             .when('/contact', {
-                templateUrl: 'pages/contact.html',
+                templateUrl: 'pages/main_view_content/contact.html',
                 controller: 'contactController'
             })
 
             .when('/addContractorToCompany', {
-                templateUrl: 'pages/addContractorToCompany.html',
+                templateUrl: 'pages/main_view_content/addContractorToCompany.html',
                 controller: 'addContractorToCompany'
             })
 
