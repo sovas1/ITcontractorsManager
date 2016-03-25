@@ -5,26 +5,27 @@ import org.sovas.model.Company;
 import org.sovas.model.Contractor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JUnitModelsTest {
 
-    Company company = new Company();
-    Contractor contractorOne = new Contractor();
-    Contractor contractorTwo = new Contractor();
-    Contractor contractorThree = new Contractor();
+    Company company;
+    List<Contractor> contractorList;
 
     @Before
     public void initialize() {
 
+        company = new Company();
+        contractorList = new ArrayList<>();
+
         company.setContractorsList(new ArrayList<>());
 
-        contractorOne.setMonthlySalary(10000);
-        contractorTwo.setMonthlySalary(10000);
-        contractorThree.setMonthlySalary(10000);
+        for(int i = 0; i < 3; i++){
+            contractorList.add(new Contractor());
+            contractorList.get(i).setMonthlySalary(10000);
+            company.addContractor(contractorList.get(i));
+        }
 
-        company.addContractor(contractorOne);
-        company.addContractor(contractorTwo);
-        company.addContractor(contractorThree);
     }
 
     @Test
