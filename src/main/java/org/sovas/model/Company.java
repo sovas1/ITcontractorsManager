@@ -41,6 +41,7 @@ public class Company {
         annualSalarySum -= contractor.getMonthlySalary() * 12;
     }
 
+    // to avoid stack overflow error due to infinite loop
     @Override
     public String toString() {
         return "Company{" +

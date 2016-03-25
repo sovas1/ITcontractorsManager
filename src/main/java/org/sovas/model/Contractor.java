@@ -30,6 +30,7 @@ public class Contractor {
     @JsonIgnore
     private Company company;
 
+    // to avoid stack overflow error due to infinite loop
     @Override
     public String toString() {
         return "Contractor{" +
