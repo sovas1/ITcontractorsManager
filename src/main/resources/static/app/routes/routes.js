@@ -2,10 +2,10 @@
 
 (function () {
 
-    var app = angular.module('routes', ['ngRoute']);
+    angular.module('routes', ['ngRoute'])
 
     // routes configuration
-    app.config(function ($routeProvider, $locationProvider) {
+    .config(function ($routeProvider, $locationProvider) {
         $routeProvider
 
         // route for the home page

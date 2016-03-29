@@ -1,13 +1,11 @@
 // modelsController.js
 (function () {
 
-    var app = angular.module('models-controller', []);
-
-    var urlBase = "";
+    angular.module('models-controller', [])
 
     // INJECTION CONTROLLER
 
-    app.controller('addContractorToCompany', function ($scope, $http) {
+    .controller('addContractorToCompany', function ($scope, $http) {
         $scope.message = 'Adding Contractor To Company will be here soon';
 
         $scope.addContractorToCompany = function addContractorToCompany() {
@@ -19,21 +17,21 @@
             else {
                 $http({
                     method: "PUT",
-                    url: urlBase + "/company/" + $scope.companyId + "/contractor/" + $scope.contractorId
+                    url: "/company/" + $scope.companyId + "/contractor/" + $scope.contractorId
                 }).success(function () {
-                    alert("Assigned Contractor to Company");
+                    alert("Attempting to assign, check your company to see the result");
                 }).error(function () {
                     alert("Invalid Id");
                 });
             }
 
         };
-    });
+    })
 
 
     // COMPANY CONTROLLERS
 
-    app.controller('companyGetController', function ($scope, $http) {
+    .controller('companyGetController', function ($scope, $http) {
         $scope.message = 'get company';
 
         $scope.getCompany = function getCompany() {
@@ -45,9 +43,9 @@
                     alert("Error occurred");
                 });
         }
-    });
+    })
 
-    app.controller('companyPostController', function ($scope, $http) {
+    .controller('companyPostController', function ($scope, $http) {
         $scope.message = 'post company';
 
         $scope.postCompany = function postCompany() {
@@ -65,9 +63,9 @@
             }
         };
 
-    });
+    })
 
-    app.controller('companyPutController', function ($scope, $http) {
+    .controller('companyPutController', function ($scope, $http) {
         $scope.message = 'put company';
 
         $scope.putCompany = function putCompany() {
@@ -85,16 +83,16 @@
                 });
             }
         };
-    });
+    })
 
-    app.controller('companyDeleteController', function ($scope, $http) {
+    .controller('companyDeleteController', function ($scope, $http) {
         $scope.message = 'delete company';
 
         $scope.deleteCompany = function deleteCompany() {
             if ($scope.companyId > 0) {
                 $http({
                     method: "DELETE",
-                    url: urlBase + "/company/" + $scope.companyId
+                    url: "/company/" + $scope.companyId
                 }).success(function () {
                     alert("Company has been deleted");
                 }).error(function () {
@@ -103,11 +101,11 @@
             }
             else alert("Invalid Id");
         };
-    });
+    })
 
     // CONTRACTOR CONTROLLERS
 
-    app.controller('contractorGetController', function ($scope, $http) {
+    .controller('contractorGetController', function ($scope, $http) {
         $scope.message = 'get contractor';
 
         $scope.getContractor = function getContractor() {
@@ -119,9 +117,9 @@
                     alert("Error occurred");
                 });
         }
-    });
+    })
 
-    app.controller('contractorPostController', function ($scope, $http) {
+    .controller('contractorPostController', function ($scope, $http) {
         $scope.message = 'post contractor';
 
         $scope.postContractor = function postContractor() {
@@ -145,9 +143,9 @@
             }
         };
 
-    });
+    })
 
-    app.controller('contractorPutController', function ($scope, $http) {
+    .controller('contractorPutController', function ($scope, $http) {
         $scope.message = 'put contractor';
 
         $scope.putContractor = function putContractor() {
@@ -166,15 +164,15 @@
                     yearsOfExperience: $scope.yearsOfExperience,
                     monthlySalary: $scope.monthlySalary
                 }).success(function () {
-                    alert("Contractor added to database");
+                    alert("Contractor updated");
                 }).error(function () {
                     alert("Invalid data input");
                 });
             }
         };
-    });
+    })
 
-    app.controller('contractorDeleteController', function ($scope, $http) {
+    .controller('contractorDeleteController', function ($scope, $http) {
         $scope.message = 'delete contractor';
 
         $scope.deleteContractor = function deleteContractor() {
@@ -184,7 +182,7 @@
             else {
                 $http({
                     method: "DELETE",
-                    url: urlBase + "/contractor/" + $scope.contractorId
+                    url: "/contractor/" + $scope.contractorId
                 }).success(function () {
                     alert("Contractor deleted");
                 }).error(function () {

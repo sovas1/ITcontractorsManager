@@ -107,16 +107,16 @@ body{
 }
 
 @-webkit-keyframes moveclouds {
-    0% {margin-left: 1000px;}
-    100% {margin-left: -1000px;}
+    0% {margin-left: 2000px;}
+    100% {margin-left: -2000px;}
 }
 @-moz-keyframes moveclouds {
-    0% {margin-left: 1000px;}
-    100% {margin-left: -1000px;}
+    0% {margin-left: 2000px;}
+    100% {margin-left: -2000px;}
 }
 @-o-keyframes moveclouds {
-    0% {margin-left: 1000px;}
-    100% {margin-left: -1000px;}
+    0% {margin-left: 2000px;}
+    100% {margin-left: -2000px;}
 }
 
 .jumbotron {
