@@ -30,13 +30,31 @@ public class ContractorDaoImpl implements ContractorDao {
 
     @Override
     public Contractor updateContractor(Contractor contractor) {
+
         Contractor oldContractor = contractorRepository.findOne(contractor.getContractorId());
+
+        double oldMonthlySalary = oldContractor.getMonthlySalary();
+
         oldContractor.setContractorName(contractor.getContractorName());
-        oldContractor.setCompany(contractor.getCompany());
         oldContractor.setContractorId(contractor.getContractorId());
         oldContractor.setTechnology(contractor.getTechnology());
         oldContractor.setYearsOfExperience(contractor.getYearsOfExperience());
         oldContractor.setMonthlySalary(contractor.getMonthlySalary());
+
+        Company oldCompany;
+
+        // update company cash
+        if(oldContractor.getCompany() != null) {
+
+            Long oldCompanyId = oldContractor.getCompany().getCompanyId();
+            oldCompany = companyRepository.findOne(oldCompanyId);
+
+            double newAnnualSalary = oldCompany.getAnnualSalarySum() - oldMonthlySalary*12 + oldContractor.getAnnualSalary();
+            oldCompany.setAnnualSalarySum(newAnnualSalary);
+
+            companyRepository.saveAndFlush(oldCompany);
+        }
+
         log.debug("{} updated", oldContractor);
         return contractorRepository.saveAndFlush(oldContractor);
     }

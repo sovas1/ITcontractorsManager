@@ -56,6 +56,20 @@ public class CompanyDaoImpl implements CompanyDao {
     public Company addContractor(Long companyId, Long contractorId) {
         Company company = companyRepository.findOne(companyId);
         Contractor contractor = contractorRepository.findOne(contractorId);
+
+        boolean hasThisContractorAlready = false;
+        for (Contractor c : company.getContractorsList()) {
+            if(c.getContractorId() == contractorId) {
+                hasThisContractorAlready = true;
+                break;
+            }
+        }
+
+        if(hasThisContractorAlready){
+            log.debug("Assignment failed because this company has that contractor already on list");
+            return null;
+        }
+
         contractor.setCompany(company);
         company.addContractor(contractor);
         log.debug("{} updated", company);
